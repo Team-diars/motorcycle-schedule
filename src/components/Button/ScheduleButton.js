@@ -1,14 +1,13 @@
 import styled from 'styled-components'
 import React, { useState } from 'react'
-
+import { useColor } from '../../hooks/useColor';
 export const ScheduleButton = ({hour}) => {
-  const [color, setColor] = useState('green');
-  const handleColor = ()=>{
-    return setColor('red');
-  }
+  // const [color, setColor] = useState('green');
+  const [color,handleColor] = useColor({myColor: "green"});
+  const { myColor } = color; 
   return (
     <>
-      <Button onClick={handleColor} style={{backgroundColor: color}}>{hour}</Button>
+      <Button onClick={handleColor} style={{backgroundColor: myColor}}>{hour}</Button>
     </>
   )
 }
