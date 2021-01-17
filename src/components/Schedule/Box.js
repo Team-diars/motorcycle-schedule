@@ -8,6 +8,7 @@ export const Box = () => {
   // const [motorcyclist, setMotorcyclist] = useState(8);
   const [, , , reset] = useColor();
   const [motorcyclist, setMotorcyclist] = useState(8);
+  const [disabled, setDisabled] = useState(false);
   const buttons = [];
   new Array(13).fill().forEach((acc, index) => {
     buttons.push(moment({ hour: 8 + index }).format("h:mm A"));
@@ -19,13 +20,14 @@ export const Box = () => {
       return setMotorcyclist(motorcyclist < 8 ? motorcyclist + 1 : 8);
     }
     else{
-      handleReset(motorcyclist)
+      handleReset(motorcyclist > 0 ? motorcyclist - 1 : 0)
       return setMotorcyclist(motorcyclist > 0 ? motorcyclist - 1 : 0);
     }
   };
-  const handleReset = (isOne) => {
-    if (isOne===1) {
-      reset();
+  const handleReset = (number) => {
+    console.log(number);
+    if (number===0) {
+      setDisabled(true);
     }
   };
   return (
@@ -38,6 +40,7 @@ export const Box = () => {
               key={index}
               hour={button}
               handleQuantity={handleQuantity}
+              isDisabled = {disabled}
             ></ScheduleButton>
           );
         })}

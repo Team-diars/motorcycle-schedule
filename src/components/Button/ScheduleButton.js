@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import React from 'react'
 import { useColor } from '../../hooks/useColor';
-export const ScheduleButton = ({hour,handleQuantity}) => {
-  const [color,,handleColor,] = useColor({myColor: "green"});
+export const ScheduleButton = ({hour,handleQuantity,isDisabled}) => {
+  const [color,handleColor,] = useColor({myColor: "green"});
   const { myColor } = color; 
   const newhandleColor = ()=>{
     handleColor()
@@ -10,7 +10,7 @@ export const ScheduleButton = ({hour,handleQuantity}) => {
   }
   return (
     <>
-      <Button onClick={newhandleColor} style={{backgroundColor: myColor}}>{hour}</Button>
+      <Button onClick={newhandleColor} style={{backgroundColor: myColor}} disabled={ myColor === 'green' ? isDisabled : false }>{hour}</Button>
     </>
   )
 }
