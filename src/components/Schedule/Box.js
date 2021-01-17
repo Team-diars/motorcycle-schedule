@@ -1,7 +1,7 @@
 import moment from "moment";
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Button } from "../Button/ScheduleButton";
+import { ScheduleButton } from "../Button/ScheduleButton";
 
 export const Box = () => {
   const [motorcyclist, setMotorcyclist] = useState(8);
@@ -11,18 +11,12 @@ export const Box = () => {
     index !== 12 &&
     buttons.push(moment({ hour: 8 + index, minute: 30 }).format("h:mm A"));
   });
-  const [ color , setColor ] = useState('green');
-
-  const handleColor = () => {
-    return setColor('red');
-  }
-
   return (
     <NewBox>
       <h1>Free Motorcyclist: {	motorcyclist }</h1>
       <WrapperButtons>
         {buttons.map((button, index) => {
-          return <Button key={index} style={{backgroundColor: `${color}`}} onClick={handleColor}>{button}</Button>
+          return <ScheduleButton key={index} hour={button}></ScheduleButton>
         })}
       </WrapperButtons>
     </NewBox>
