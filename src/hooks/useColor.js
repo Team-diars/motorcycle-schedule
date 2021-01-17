@@ -1,13 +1,15 @@
-import { useState } from 'react'
+import { useState } from "react";
 
 export const useColor = (initialState = {}) => {
-  const [color,setColor] = useState(initialState);
+  const [color, setColor] = useState(initialState);
   const [motorcyclist, setMotorcyclist] = useState(8);
+  const { myColor } = color;
   const handleColor = () => {
+    const newColor = myColor === "green" ? "red" : "green";
     setColor({
-      myColor: "red",
-      motorcyclist: setMotorcyclist( motorcyclist - 1)
+      myColor: newColor,
     });
-  }
-  return [color,handleColor,motorcyclist];
-}
+    setMotorcyclist(motorcyclist - 1);
+  };
+  return [color, motorcyclist, handleColor];
+};
