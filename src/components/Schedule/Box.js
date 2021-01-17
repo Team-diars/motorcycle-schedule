@@ -6,17 +6,28 @@ import { ScheduleButton } from "../Button/ScheduleButton";
 
 export const Box = () => {
   // const [motorcyclist, setMotorcyclist] = useState(8);
-  /* const [, motorcyclist] = useColor(); */
-  const [motorcyclist, setMotorcyclist] = useState(8)
+  const [, , , reset] = useColor();
+  const [motorcyclist, setMotorcyclist] = useState(8);
   const buttons = [];
   new Array(13).fill().forEach((acc, index) => {
     buttons.push(moment({ hour: 8 + index }).format("h:mm A"));
     index !== 12 &&
       buttons.push(moment({ hour: 8 + index, minute: 30 }).format("h:mm A"));
   });
-  const test1 = ()=>{
-    return setMotorcyclist(motorcyclist-1)
-  }
+  const handleQuantity = (color) => {
+    if (color === "red") {
+      return setMotorcyclist(motorcyclist < 8 ? motorcyclist + 1 : 8);
+    }
+    else{
+      handleReset(motorcyclist)
+      return setMotorcyclist(motorcyclist > 0 ? motorcyclist - 1 : 0);
+    }
+  };
+  const handleReset = (isOne) => {
+    if (isOne===1) {
+      reset();
+    }
+  };
   return (
     <NewBox>
       <h1>Free Motorcyclist: {motorcyclist}</h1>
@@ -26,7 +37,7 @@ export const Box = () => {
             <ScheduleButton
               key={index}
               hour={button}
-              method = {test1}
+              handleQuantity={handleQuantity}
             ></ScheduleButton>
           );
         })}
