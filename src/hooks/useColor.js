@@ -2,19 +2,12 @@ import { useState } from "react";
 
 export const useColor = (initialState = {}) => {
   const [color, setColor] = useState(initialState);
-  // const [motorcyclist, setMotorcyclist] = useState(8);
   const { myColor } = color;
-  const reset = () => {
-    setColor({
-      myColor: 'red'
-    })
-  };
   const handleColor = () => {
-    const newColor = myColor === "green" ? "red" : "green";
+    const color = myColor === "#91E72B" ? "#7B252A" : "#91E72B";
     setColor({
-      myColor: newColor,
+      myColor: color,
     });
-    // setMotorcyclist(motorcyclist - 1);
   };
-  return [color, handleColor, reset];
+  return [color, handleColor];
 };
