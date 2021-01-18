@@ -4,7 +4,7 @@ In this project we can choose an schedule and the quantity of available motorcyc
 ## Preview
 ![preview](https://i.ibb.co/KhngHSb/schedule-preview.jpg)
 
-**<https://hector-herrrera.herokuapp.com/>**
+**<https://team-diars.github.io/motorcycle-schedule/>**
 
 ## Technologies used
 ![React](https://img.shields.io/badge/-React-61DAFB?style=flat-square&logo=react&logoColor=ffffff)
