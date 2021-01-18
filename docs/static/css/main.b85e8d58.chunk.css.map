@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/index.css"],"names":[],"mappings":"AAAA,KACE,kCAEF,CACA,QAFE,UAIF","file":"main.b85e8d58.chunk.css","sourcesContent":["body{\r\n  background-color:#191919 !important;\r\n  color: white;\r\n}\r\nh1{\r\n  color: white;\r\n}"]}
